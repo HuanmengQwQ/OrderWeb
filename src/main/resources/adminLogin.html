@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>后台管理</title>
+	<!-- Meta tag Keywords -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" />
+	<meta name="keywords"
+		content="Working Signin form Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<!-- //Meta tag Keywords -->
+	<link href="//fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
+	<!--/Style-CSS -->
+	<link rel="stylesheet" href="static/css/adminLoginStyle.css" type="text/css" media="all" />
+	<!--//Style-CSS -->
+</head>
+
+<body>
+
+	 <!-- form section start -->
+	 <section class="w3l-workinghny-form">
+        <!-- /form -->
+        <div class="workinghny-form-grid">
+            <div class="wrapper">
+                <div class="logo">
+                    <h1><a class="brand-logo">后台管理</a></h1>
+                </div>
+                <div class="workinghny-block-grid">
+                    <div class="workinghny-left-img align-end">
+                        <img src="static/images/adminLoginPicture.jpg" class="img-responsive" alt="img" />
+                    </div>
+                    <div class="form-right-inf">
+                        <div class="login-form-content">
+                            <p th:if="${fail}" style="color: red">请检查用户名和密码是否正确</p>
+                            <form action="admin" class="signin-form" method="post">
+								<div class="one-frm">
+                                    <h4></h4>
+									<label>用户名</label>
+									<input type="text" name="name"  placeholder="" required="">
+								</div>
+								<div class="one-frm">
+									<label>密码</label>
+									<input type="password" name="password"  placeholder="" required="">
+								</div>
+                                <label class="check-remaind">
+                                    <input type="checkbox" id="remember-me" name="remember-me">
+                                    <span class="checkmark"></span>
+                                    <p class="remember">七天免登录</p>
+                                </label>
+                                <button class="btn btn-style mt-3">登录</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

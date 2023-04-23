@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>注册</title>
+    <!-- Meta-Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Core Login Form a Responsive Web Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible Web Template, Smartphone Compatible Web Template, Free Webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- //Meta-Tags -->
+    <!-- Index-Page-CSS -->
+    <link rel="stylesheet" href="static/css/signStyle.css" type="text/css" media="all">
+    <!-- //Custom-Stylesheet-Links -->
+    <!--fonts -->
+    <link href="//fonts.googleapis.com/css?family=Mukta+Mahee:200,300,400,500,600,700,800" rel="stylesheet">
+    <!-- //fonts -->
+    <!-- Font-Awesome-File -->
+    <link rel="stylesheet" href="static/css/font-awesome.css" type="text/css" media="all">
+</head>
+
+<body>
+    <h1 class="title-agile text-center">成为新用户</h1>
+    <div class="content-w3ls">
+        <div class="agileits-grid">
+            <div class="content-top-agile">
+                <h2 style="text-align: center;color: red;" th:text="${msg}"></h2>
+            </div>
+            <div class="content-bottom">
+                <form action="sign" method="post">
+                    <div class="field_w3ls">
+                        <div class="field-group">
+                            <input name="username" id="username" type="text" value="" placeholder="用户名" required>
+                        </div>
+                        <div class="field-group">
+                            <input id="password-field" type="password" class="form-control" name="password" value="" placeholder="密码">
+                            <span toggle="#password-field" class="fa fa-fw fa-eye-slash field-icon toggle-password"></span>
+                        </div>
+                        <hr>
+                        <div class="field-group">
+                            <input id="repeatpassword-field" type="password" class="form-control" name="repeatpassword" value="" placeholder="确认密码">
+                            <span toggle="#repeatpassword-field" class="fa fa-fw fa-eye-slash field-icon toggle-password"></span>
+                        </div>
+                    </div>
+                    <div class="wthree-field">
+                        <input id="saveForm" name="saveForm" type="submit" value="立即注册" />
+                    </div>
+                </form>
+            </div>
+            <!-- //content bottom -->
+        </div>
+    </div>
+    <!--//copyright-->
+    <script src="static/js/jquery-2.2.3.min.js"></script>
+    <!-- script for show password -->
+    <script>
+        $(".toggle-password").click(function () {
+
+            $(this).toggleClass("fa-eye fa-eye-slash");
+            var input = $($(this).attr("toggle"));
+            if (input.attr("type") == "password") {
+                input.attr("type", "text");
+            } else {
+                input.attr("type", "password");
+            }
+        });
+    </script>
+    <!-- /script for show password -->
+
+</body>
+<!-- //Body -->
+
+</html>

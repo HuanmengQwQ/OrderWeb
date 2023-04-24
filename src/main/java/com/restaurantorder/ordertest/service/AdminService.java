@@ -4,4 +4,6 @@ import jakarta.servlet.http.HttpSession;
 
 public interface AdminService {
     boolean auth(String name, String password, HttpSession session);
+
+    boolean ChangeAnnouncements(String note);
 }

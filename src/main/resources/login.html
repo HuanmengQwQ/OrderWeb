@@ -1,10 +1,5 @@
-
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
--->
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <title>登录界面</title>
@@ -32,9 +27,10 @@ Author URL: http://w3layouts.com
                 <div class="info-grids">
                     <form action="login" method="post">
                         <div class="form-grid">
+                            <p style="color: red" th:if="${userFail}">请检查用户名和密码是否正确！</p>
                             <div class="input-field">
                                 <label> 用户名 </label>
-                                <input type="email" name="email" id="email" placeholder="用户名" required="">
+                                <input id="username" name="username" placeholder="用户名" required="" type="text">
                             </div>
                             <div class="input-field">
                                 <label> 密码</label>
@@ -42,7 +38,7 @@ Author URL: http://w3layouts.com
                             </div>
                         </div>
                         <label class="check-remaind">
-                            <input type="checkbox">
+                            <input id="remember-me" name="remember-me" type="checkbox">
                             <span class="checkmark"></span>
                             <p class="remember">记住我</p>
 

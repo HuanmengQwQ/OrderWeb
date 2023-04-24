@@ -20,14 +20,29 @@ public class UserServiceImpl implements UserService {
             String encrypt_password = MD5.md5(password);
             User u = userMapper.getUser(username,encrypt_password);
 
-            if(u == null) return false;
+            if (u == null) return false;
             else {
-                session.setAttribute("username",username);
+                session.setAttribute("user", u);
                 return true;
             }
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
 
+    }
+
+    @Override
+    public String getNoteContain() {
+        try (SqlSession sqlSession = MybatisUtil.getSession()) {
+            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+
+            String note = userMapper.getNote();
+
+            if (note != null) {
+                return note;
+            }
+        }
+
+        return null;
     }
 }

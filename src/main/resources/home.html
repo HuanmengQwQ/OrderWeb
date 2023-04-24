@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <!-- Basic -->
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta charset="utf-8"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
   <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
   <!-- Site Metas -->
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
+  <meta content="" name="keywords"/>
+  <meta content="" name="description"/>
   <meta name="author" content="" />
 
   <title>首页</title>
@@ -135,7 +135,7 @@
                   公告
               </h3>
               <div class="note_board">
-                <p style="font-size: 35px;"></p>
+                <p style="font-size: 35px;" th:text="${note} == null?'':${note}"></p>
               </div>
               <div class="btn-box">
                 <a href="about" class="btn-1">

@@ -3,7 +3,6 @@ package com.restaurantorder.ordertest.service.impl;
 import com.restaurantorder.ordertest.MD5.MD5;
 import com.restaurantorder.ordertest.dao.AdminMapper;
 import com.restaurantorder.ordertest.entity.Admin;
-import com.restaurantorder.ordertest.entity.User;
 import com.restaurantorder.ordertest.service.AdminService;
 import com.restaurantorder.ordertest.util.MybatisUtil;
 import jakarta.servlet.http.HttpSession;
@@ -18,14 +17,30 @@ public class AdminServiceImpl implements AdminService {
             Admin a = adminMapper.getAdmin(name,encrypt_password);
 
             if(a != null){
-                session.setAttribute("admin",a);
+                session.setAttribute("admin", a);
                 return true;
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
         return false;
     }
+
+    @Override
+    public boolean ChangeAnnouncements(String note) {
+        try (SqlSession sqlSession = MybatisUtil.getSession()) {
+            AdminMapper adminMapper = sqlSession.getMapper(AdminMapper.class);
+            boolean flag = adminMapper.changeNote(note);
+            if (flag) {
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+
 }

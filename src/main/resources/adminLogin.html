@@ -31,7 +31,7 @@
                     </div>
                     <div class="form-right-inf">
                         <div class="login-form-content">
-                            <p th:if="${fail}" style="color: red">请检查用户名和密码是否正确</p>
+                            <p style="color: red" th:if="${adminFail}">请检查用户名和密码是否正确</p>
                             <form action="admin" class="signin-form" method="post">
 								<div class="one-frm">
                                     <h4></h4>

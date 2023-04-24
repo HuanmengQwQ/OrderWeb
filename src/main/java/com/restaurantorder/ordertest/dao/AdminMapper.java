@@ -12,4 +12,5 @@ public interface AdminMapper {
 
     @Update("UPDATE note SET contain = #{text} WHERE n_id = 1")
     boolean changeNote(@Param("text")String contain_text);
+
 }

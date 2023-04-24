@@ -6,10 +6,7 @@ import com.restaurantorder.ordertest.util.ThymeleafUtil;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.Cookie;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.*;
 import org.thymeleaf.context.Context;
 
 import java.io.IOException;
@@ -26,10 +23,10 @@ public class adminServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Context context = new Context();
-        if(req.getSession().getAttribute("login-fail") != null){
-            context.setVariable("fail",true);
+        if (req.getSession().getAttribute("admin-login-fail") != null) {
+            context.setVariable("adminFail", true);
         }
-        ThymeleafUtil.getEngine().process("adminLogin.html",context,resp.getWriter());
+        ThymeleafUtil.getEngine().process("adminLogin.html", context, resp.getWriter());
     }
 
     @Override
@@ -39,20 +36,22 @@ public class adminServlet extends HttpServlet {
         String remember = req.getParameter("remember-me");
 
         if(adminService.auth(name,password,req.getSession())){
+            HttpSession session = req.getSession();
             //设置cookies
-            if (remember.equals("on")){
+            if ("on".equals(remember)) {
                 Cookie cookie_username = new Cookie("name", name);
-                cookie_username.setMaxAge(7*24*60*60);
+                cookie_username.setMaxAge(7 * 24 * 60 * 60);
                 Cookie cookie_password = new Cookie("password", password);
-                cookie_password.setMaxAge(7*24*60*60);
+                cookie_password.setMaxAge(7 * 24 * 60 * 60);
                 resp.addCookie(cookie_username);
                 resp.addCookie(cookie_password);
             }
+            session.setAttribute("name", name);
+
+            resp.sendRedirect("adminIndex");
         }else {
-            req.getSession().setAttribute("login-fail",new Object());
-            this.doGet(req,resp);
+            req.getSession().setAttribute("admin-login-fail", new Object());
+            this.doGet(req, resp);
         }
-
-
     }
 }

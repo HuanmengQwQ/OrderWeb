@@ -1,7 +1,6 @@
-package com.restaurantorder.ordertest.servlet;
+package com.restaurantorder.ordertest.servlet.auth;
 
 import com.restaurantorder.ordertest.service.SignService;
-import com.restaurantorder.ordertest.service.UserService;
 import com.restaurantorder.ordertest.service.impl.SignServiceImpl;
 import com.restaurantorder.ordertest.util.ThymeleafUtil;
 import jakarta.servlet.ServletException;

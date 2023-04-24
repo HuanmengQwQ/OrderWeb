@@ -1,4 +1,4 @@
-package com.restaurantorder.ordertest.servlet;
+package com.restaurantorder.ordertest.servlet.auth;
 
 import com.restaurantorder.ordertest.service.UserService;
 import com.restaurantorder.ordertest.service.impl.UserServiceImpl;

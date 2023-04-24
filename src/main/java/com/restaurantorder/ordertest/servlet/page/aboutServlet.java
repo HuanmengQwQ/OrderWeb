@@ -1,4 +1,4 @@
-package com.restaurantorder.ordertest.servlet;
+package com.restaurantorder.ordertest.servlet.page;
 
 import com.restaurantorder.ordertest.util.ThymeleafUtil;
 import jakarta.servlet.ServletException;

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+	<title>概览</title>
+	<!-- plugins:css -->
+	<link href="static/node_modules/mdi/css/materialdesignicons.min.css" rel="stylesheet">
+	<link href="static/node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css" rel="stylesheet">
+	<!-- endinject -->
+	<!-- plugin css for this page -->
+	<link href="static/node_modules/jquery-bar-rating/dist/themes/css-stars.css" rel="stylesheet">
+	<link href="static/node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet"/>
+	<!-- End plugin css for this page -->
+	<!-- inject:css -->
+	<link href="static/css/backstageStyle.css" rel="stylesheet">
+	<!-- endinject -->
+	<link href="#" rel="shortcut icon"/>
+</head>
+<body>
+<div class="container-scroller">
+	<!-- partial:partials/_navbar.html -->
+	<div th:replace="hearder.html::title"></div>
+	<!-- partial -->
+	<div class="container-fluid page-body-wrapper">
+		<div class="row row-offcanvas row-offcanvas-right">
+			<!-- partial:partials/_sidebar.html -->
+			<nav class="sidebar sidebar-offcanvas" id="sidebar">
+				<ul class="nav">
+					<li class="nav-item">
+						<a class="nav-link" href="">
+							<span class="menu-title">概览</span>
+							<i class="mdi mdi-home menu-icon"></i>
+						</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="">
+							<span class="menu-title">订单</span>
+							<i class="mdi mdi-table-large menu-icon"></i>
+						</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="">
+							<span class="menu-title">管理菜品</span>
+							<i class="mdi mdi-table-large menu-icon"></i>
+						</a>
+					</li>
+				</ul>
+			</nav>
+			<!-- partial -->
+			<div class="content-wrapper">
+				<div class="row">
+					<div class="col-md-4 stretch-card grid-margin">
+						<div class="card bg-gradient-warning text-white">
+							<div class="card-body">
+								<h4 class="font-weight-normal mb-3">收入</h4>
+								<h2 class="font-weight-normal mb-5">$ 15,00000.00</h2>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 stretch-card grid-margin">
+						<div class="card bg-gradient-info text-white">
+							<div class="card-body">
+								<h4 class="font-weight-normal mb-3">需准备的订单</h4>
+								<h2 class="font-weight-normal mb-5">45633456</h2>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 stretch-card grid-margin">
+						<div class="card bg-gradient-success text-white">
+							<div class="card-body">
+								<h4 class="font-weight-normal mb-3">点餐人数</h4>
+								<h2 class="font-weight-normal mb-5">955741235</h2>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-12 grid-margin stretch-card">
+					<div class="card">
+						<div class="card-body">
+							<h4 class="card-title">编辑公告栏</h4>
+							<form action="adminIndex" method="post">
+								<table class="table table-striped">
+									<thead>
+									<tr>
+										<th style="width: 200px;">
+											公告栏内容
+										</th>
+										<th style="width: 5%;">
+										</th>
+									</tr>
+									</thead>
+									<tbody>
+									<tr>
+										<td>
+											<input id="note" name="note" type="text">
+										<td>
+											<button type="submit">提交</button>
+										</td>
+									</tr>
+									</tbody>
+								</table>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- content-wrapper ends -->
+			<!-- partial:partials/_footer.html -->
+			<footer class="footer">
+				<div class="d-sm-flex justify-content-center justify-content-sm-between">
+					<span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright &copy; 2019.Company name All rights reserved.<a
+							href="http://sc.chinaz.com/moban/"
+							target="_blank">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></span>
+					<span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"></span>
+				</div>
+			</footer>
+			<!-- partial -->
+		</div>
+		<!-- row-offcanvas ends -->
+	</div>
+	<!-- page-body-wrapper ends -->
+</div>
+<!-- container-scroller -->
+
+<!-- plugins:js -->
+<script src="static/node_modules/jquery/dist/jquery.min.js"></script>
+<script src="static/node_modules/popper.js/dist/umd/popper.min.js"></script>
+<script src="static/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="static/node_modules/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.min.js"></script>
+<!-- endinject -->
+<!-- Plugin js for this page-->
+<script src="static/node_modules/chart.js/dist/Chart.min.js"></script>
+<!-- End plugin js for this page-->
+<!-- inject:js -->
+<script src="static/js/off-canvas.js"></script>
+<script src="static/js/misc.js"></script>
+<!-- endinject -->
+<!-- Custom js for this page-->
+<script src="static/js/dashboard.js"></script>
+<!-- End custom js for this page-->
+</body>
+
+</html>

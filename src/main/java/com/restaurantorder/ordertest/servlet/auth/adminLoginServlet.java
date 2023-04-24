@@ -1,4 +1,4 @@
-package com.restaurantorder.ordertest.servlet;
+package com.restaurantorder.ordertest.servlet.auth;
 
 import com.restaurantorder.ordertest.service.AdminService;
 import com.restaurantorder.ordertest.service.impl.AdminServiceImpl;
@@ -12,7 +12,7 @@ import org.thymeleaf.context.Context;
 import java.io.IOException;
 
 @WebServlet("/admin")
-public class adminServlet extends HttpServlet {
+public class adminLoginServlet extends HttpServlet {
     AdminService adminService;
 
     @Override

@@ -27,9 +27,8 @@ public class backstageFilter extends HttpFilter {
         chain.doFilter(req,res);
     }
     private boolean check(String url){
-        if (!url.contains("static/")){
+        if (!url.contains("/static/")) {
             return true;
-        }
-        else return false;
+        } else return false;
     }
 }

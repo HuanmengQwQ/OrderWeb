@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+  <title>管理</title>
+  <!-- plugins:css -->
+  <link href="static/node_modules/mdi/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="static/node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css" rel="stylesheet">
+  <!-- endinject -->
+  <!-- inject:css -->
+  <link href="static/css/backstageStyle.css" rel="stylesheet">
+  <!-- endinject -->
+</head>
+
+<body>
+<div class="container-scroller">
+  <!-- partial:../../partials/_navbar.html -->
+  <div th:replace="hearder.html::title"></div>
+  <!-- partial -->
+  <div class="container-fluid page-body-wrapper">
+    <div class="row row-offcanvas row-offcanvas-right">
+      <!-- partial:partials/_sidebar.html -->
+      <div th:replace="side.html::side"></div>
+
+      <!-- partial -->
+      <div class="content-wrapper">
+        <div class="row">
+          <div class="col-lg-12 stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">已上菜品</h4>
+                <div style="margin-bottom: 70px;"><a href="#">
+                  <button style="width: 100px; float:right; background-color: #F08080;">添加菜品</button>
+                </a></div>
+                <form>
+                  <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                      <th>
+                        编号
+                      </th>
+                      <th>
+                        菜名
+                      </th>
+                      <th>
+                        价格
+                      </th>
+                      <th>
+                        简介
+                      </th>
+                      <th style="width: 100px;">
+                        操作
+                      </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="table-info">
+                      <td>
+                        1
+                      </td>
+                      <td>
+                        Herman Beck
+                      </td>
+                      <td>
+                        Photoshop
+                      </td>
+                      <td>
+                        $ 77.99
+                      </td>
+                      <td>
+                        <button style="background-color: #FAEBD7;">删除</button>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- content-wrapper ends -->
+    </div>
+    <!-- row-offcanvas ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
+</div>
+<!-- container-scroller -->
+<!-- plugins:js -->
+<script src="static/node_modules/jquery/dist/jquery.min.js"></script>
+<script src="static/node_modules/popper.js/dist/umd/popper.min.js"></script>
+<script src="static/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="static/node_modules/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.min.js"></script>
+<!-- endinject -->
+<!-- Plugin js for this page-->
+<!-- End plugin js for this page-->
+<!-- inject:js -->
+<script src="static/js/off-canvas.js"></script>
+<script src="static/js/misc.js"></script>
+<!-- endinject -->
+<!-- Custom js for this page-->
+<!-- End custom js for this page-->
+</body>
+
+</html>

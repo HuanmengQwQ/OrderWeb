@@ -8,7 +8,7 @@ import jakarta.servlet.http.*;
 
 import java.io.IOException;
 
-@WebFilter(urlPatterns = {"/adminIndex"})
+@WebFilter(urlPatterns = {"/adminIndex", "/addMenu", "/manageMenu"})
 public class backstageFilter extends HttpFilter {
     @Override
     public void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {

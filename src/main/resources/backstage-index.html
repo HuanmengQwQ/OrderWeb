@@ -27,30 +27,7 @@
 	<div class="container-fluid page-body-wrapper">
 		<div class="row row-offcanvas row-offcanvas-right">
 			<!-- partial:partials/_sidebar.html -->
-			<nav class="sidebar sidebar-offcanvas" id="sidebar">
-				<ul class="nav">
-					<li class="nav-item">
-						<a class="nav-link" href="">
-							<span class="menu-title">概览</span>
-							<i class="mdi mdi-home menu-icon"></i>
-						</a>
-					</li>
-
-					<li class="nav-item">
-						<a class="nav-link" href="">
-							<span class="menu-title">订单</span>
-							<i class="mdi mdi-table-large menu-icon"></i>
-						</a>
-					</li>
-
-					<li class="nav-item">
-						<a class="nav-link" href="">
-							<span class="menu-title">管理菜品</span>
-							<i class="mdi mdi-table-large menu-icon"></i>
-						</a>
-					</li>
-				</ul>
-			</nav>
+			<div th:replace="side.html::side"></div>
 			<!-- partial -->
 			<div class="content-wrapper">
 				<div class="row">
@@ -99,7 +76,7 @@
 										<td>
 											<input id="note" name="note" type="text">
 										<td>
-											<button type="submit">提交</button>
+										<button onclick="changeNote()" type="submit">提交</button>
 										</td>
 									</tr>
 									</tbody>
@@ -111,14 +88,6 @@
 			</div>
 			<!-- content-wrapper ends -->
 			<!-- partial:partials/_footer.html -->
-			<footer class="footer">
-				<div class="d-sm-flex justify-content-center justify-content-sm-between">
-					<span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright &copy; 2019.Company name All rights reserved.<a
-							href="http://sc.chinaz.com/moban/"
-							target="_blank">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></span>
-					<span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"></span>
-				</div>
-			</footer>
 			<!-- partial -->
 		</div>
 		<!-- row-offcanvas ends -->
@@ -143,6 +112,7 @@
 <!-- Custom js for this page-->
 <script src="static/js/dashboard.js"></script>
 <!-- End custom js for this page-->
+<script src="static/js/changeNote.js"></script>
 </body>
 
 </html>

@@ -13,9 +13,8 @@ import org.thymeleaf.context.Context;
 
 import java.io.IOException;
 
-@WebServlet("/adminIndex")
-public class backstageIndexServlet extends HttpServlet {
-    String s = "";
+@WebServlet("/manageMenu")
+public class manageMenuServlet extends HttpServlet {
     AdminService adminService;
 
     @Override
@@ -26,21 +25,14 @@ public class backstageIndexServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Context context = new Context();
-
         HttpSession session = req.getSession();
         String name = (String) session.getAttribute("name");
         context.setVariable("name", name);
-
-        ThymeleafUtil.getEngine().process("backstage-index.html", context, resp.getWriter());
+        ThymeleafUtil.getEngine().process("managingMenu.html", context, resp.getWriter());
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
-        String note = req.getParameter("note");
 
-        adminService.ChangeAnnouncements(note);
-
-        resp.sendRedirect("adminIndex");
     }
 }

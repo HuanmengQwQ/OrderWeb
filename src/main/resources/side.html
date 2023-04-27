@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<!-- partial:partials/_sidebar.html -->
+<nav class="sidebar sidebar-offcanvas" id="sidebar" th:fragment="side">
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link" href="adminIndex">
+                <span class="menu-title">概览</span>
+                <i class="mdi mdi-home menu-icon"></i>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <span class="menu-title">订单</span>
+                <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <span class="menu-title">管理客户</span>
+                <i class="mdi mdi-contacts menu-icon"></i>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="manageMenu">
+                <span class="menu-title">管理菜品</span>
+                <i class="mdi mdi-table-large menu-icon"></i>
+            </a>
+        </li>
+    </ul>
+</nav>
+</body>
+</html>

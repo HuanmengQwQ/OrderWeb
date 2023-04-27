@@ -1,4 +1,4 @@
-package com.restaurantorder.ordertest.servlet;
+package com.restaurantorder.ordertest.servlet.page;
 
 import com.restaurantorder.ordertest.service.AdminService;
 import com.restaurantorder.ordertest.service.impl.AdminServiceImpl;
@@ -13,8 +13,8 @@ import org.thymeleaf.context.Context;
 
 import java.io.IOException;
 
-@WebServlet("/adminIndex")
-public class backstageIndexServlet extends HttpServlet {
+@WebServlet("/addMenu")
+public class addMenuServlet extends HttpServlet {
     AdminService adminService;
 
     @Override
@@ -30,21 +30,15 @@ public class backstageIndexServlet extends HttpServlet {
         String name = (String) session.getAttribute("name");
         context.setVariable("name", name);
 
-        ThymeleafUtil.getEngine().process("backstage-index.html", context, resp.getWriter());
+        ThymeleafUtil.getEngine().process("addMenu.html", context, resp.getWriter());
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
-        String note = req.getParameter("note");
+        String m_name = req.getParameter("NameOfDish");
+        String m_price = req.getParameter("DishPrice");
+        String m_desc = req.getParameter("Introduction");
 
-        if (note != null) {
-            adminService.ChangeAnnouncements(note);
 
-            session.setAttribute("changeMsg", "修改成功！");
-        } else {
-            session.setAttribute("changeMsg", "修改失败！");
-        }
-        resp.sendRedirect("adminIndex");
     }
 }

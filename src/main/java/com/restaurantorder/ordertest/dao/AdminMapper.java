@@ -2,10 +2,9 @@ package com.restaurantorder.ordertest.dao;
 
 import com.restaurantorder.ordertest.entity.Admin;
 import com.restaurantorder.ordertest.entity.Food;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
+
+import java.util.List;
 
 public interface AdminMapper {
 
@@ -17,4 +16,19 @@ public interface AdminMapper {
 
     @Insert("INSERT INTO menu VALUE(#{m_id},#{Mname},#{Mprice},#{Mintrodution})")
     void addMenu(Food f);
+
+    @Select("SELECT * FROM menu WHERE Mname = #{m_name}")
+    Food checkMenu(@Param("m_name") String name);
+
+    @Delete("DELETE FROM menu WHERE m_id = #{m_id}")
+    int delMenu(@Param("m_id") String id);
+
+    @Results({
+            @Result(column = "m_id", property = "m_id"),
+            @Result(column = "Mname", property = "Mname"),
+            @Result(column = "Mprice", property = "Mprice"),
+            @Result(column = "Mintrodution", property = "Mintrodution")
+    })
+    @Select("SELECT * FROM menu")
+    List<Food> getFoodList();
 }

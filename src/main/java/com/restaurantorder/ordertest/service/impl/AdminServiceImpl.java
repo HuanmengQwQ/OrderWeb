@@ -9,17 +9,15 @@ import com.restaurantorder.ordertest.util.MybatisUtil;
 import jakarta.servlet.http.HttpSession;
 import org.apache.ibatis.session.SqlSession;
 
-import java.util.List;
-
 public class AdminServiceImpl implements AdminService {
     @Override
     public boolean auth(String name, String password, HttpSession session) {
-        try (SqlSession sqlSession = MybatisUtil.getSession()) {
+        try(SqlSession sqlSession = MybatisUtil.getSession()) {
             AdminMapper adminMapper = sqlSession.getMapper(AdminMapper.class);
             String encrypt_password = MD5.md5(password);
-            Admin a = adminMapper.getAdmin(name, encrypt_password);
+            Admin a = adminMapper.getAdmin(name,encrypt_password);
 
-            if (a != null) {
+            if(a != null){
                 session.setAttribute("admin", a);
                 return true;
             }
@@ -65,27 +63,5 @@ public class AdminServiceImpl implements AdminService {
         return false;
     }
 
-    @Override
-    public boolean delMenu(String id) {
-        SqlSession sqlSession;
-        sqlSession = MybatisUtil.getCloseSession();
-        try {
-            AdminMapper adminMapper = sqlSession.getMapper(AdminMapper.class);
 
-            adminMapper.delMenu(id);
-
-            sqlSession.commit();
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    @Override
-    public List<Food> getFoodList() {
-        try (SqlSession sqlSession = MybatisUtil.getSession()) {
-            AdminMapper adminMapper = sqlSession.getMapper(AdminMapper.class);
-            return adminMapper.getFoodList();
-        }
-    }
 }

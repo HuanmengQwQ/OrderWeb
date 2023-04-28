@@ -36,6 +36,7 @@ public class backstageIndexServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
         String note = req.getParameter("note");
 
         adminService.ChangeAnnouncements(note);

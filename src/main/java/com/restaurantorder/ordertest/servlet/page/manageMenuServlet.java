@@ -1,4 +1,4 @@
-package com.restaurantorder.ordertest.servlet.mange;
+package com.restaurantorder.ordertest.servlet.page;
 
 import com.restaurantorder.ordertest.service.AdminService;
 import com.restaurantorder.ordertest.service.impl.AdminServiceImpl;
@@ -12,10 +12,9 @@ import jakarta.servlet.http.HttpSession;
 import org.thymeleaf.context.Context;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
-@WebServlet("/addMenu")
-public class addMenuServlet extends HttpServlet {
+@WebServlet("/manageMenu")
+public class manageMenuServlet extends HttpServlet {
     AdminService adminService;
 
     @Override
@@ -26,32 +25,14 @@ public class addMenuServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Context context = new Context();
-
         HttpSession session = req.getSession();
         String name = (String) session.getAttribute("name");
         context.setVariable("name", name);
-
-        ThymeleafUtil.getEngine().process("addMenu.html", context, resp.getWriter());
+        ThymeleafUtil.getEngine().process("managingMenu.html", context, resp.getWriter());
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("application/json;charset=UTF-8");
-        PrintWriter out = resp.getWriter();
-        String m_name = req.getParameter("NameOfDish");
-        double m_price = Double.parseDouble(req.getParameter("DishPrice"));
-        String m_desc = req.getParameter("Introduction");
-
-        System.out.println(m_name);
-
-        boolean flag = adminService.addMenu(m_name, m_price, m_desc);
-
-
-        if (flag) {
-            out.write("{\"status\":\"success\",\"message\":\"添加成功！\"}");
-        } else {
-            out.write("{\"status\":\"fail\",\"error\":\"添加失败！\"}");
-        }
 
     }
 }

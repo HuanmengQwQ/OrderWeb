@@ -32,24 +32,21 @@
             <div class="card">
               <div class="card-body">
                 <h4 class="card-title">已上菜品</h4>
-                <div style="margin-bottom: 70px;">
-                  <a href="addMenu">
-                    <button style="width: 100px; float:right; background-color: #F08080;cursor:pointer !important;">
-                      添加菜品
-                    </button>
-                  </a>
-                </div>
-                <table class="table table-bordered" id="FoodTable">
-                  <thead>
-                  <tr>
-                    <th>
-                      编号
-                    </th>
-                    <th>
-                      菜名
-                    </th>
-                    <th>
-                      价格
+                <div style="margin-bottom: 70px;"><a href="#">
+                  <button style="width: 100px; float:right; background-color: #F08080;">添加菜品</button>
+                </a></div>
+                <form>
+                  <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                      <th>
+                        编号
+                      </th>
+                      <th>
+                        菜名
+                      </th>
+                      <th>
+                        价格
                       </th>
                       <th>
                         简介
@@ -59,22 +56,27 @@
                       </th>
                     </tr>
                     </thead>
-                  <tbody>
-                  <tr class="table-info" th:each="Food : ${FoodList}">
-                    <td th:text="${Food.getM_id()}">
-                    </td>
-                    <td th:text="${Food.getMname()}">
-                    </td>
-                    <td th:text="${Food.getMprice()}">
-                    </td>
-                    <td th:text="${Food.getMintrodution()}">
-                    </td>
-                    <td>
-                      <a class="button" onclick="return del()" th:href="'delMenu?id='+${Food.getM_id()}">删除</a>
-                    </td>
+                    <tbody>
+                    <tr class="table-info">
+                      <td>
+                        1
+                      </td>
+                      <td>
+                        Herman Beck
+                      </td>
+                      <td>
+                        Photoshop
+                      </td>
+                      <td>
+                        $ 77.99
+                      </td>
+                      <td>
+                        <button style="background-color: #FAEBD7;">删除</button>
+                      </td>
                     </tr>
                     </tbody>
                   </table>
+                </form>
               </div>
             </div>
           </div>
@@ -101,7 +103,6 @@
 <!-- endinject -->
 <!-- Custom js for this page-->
 <!-- End custom js for this page-->
-<script src="static/js/delMenu.js"></script>
 </body>
 
 </html>

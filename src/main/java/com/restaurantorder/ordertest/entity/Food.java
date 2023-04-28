@@ -1,10 +1,8 @@
 package com.restaurantorder.ordertest.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-@AllArgsConstructor
 public class Food {
     private int m_id;
     private String Mname;

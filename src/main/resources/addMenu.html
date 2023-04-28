@@ -33,7 +33,7 @@
             <div class="card">
               <div class="card-body">
                 <h4 class="card-title">添加菜品</h4>
-                <form action="addMenu" method="post">
+                <form name="DishForm">
                   <table class="table table-bordered">
                     <thead>
                     <tr>
@@ -53,18 +53,20 @@
                     </thead>
                     <tbody>
                     <tr>
+
                       <td>
                         <input id="NameOfDish" name="NameOfDish" style="background-color: #FFFAF0;" type="text">
                       </td>
                       <td>
                         ￥<input id="DishPrice" name="DishPrice" style="background-color: #F0FFF0;width: 92%;"
-                                type="number">
+                                step="0.01" type="number">
                       </td>
                       <td>
                         <input id="Introduction" name="Introduction" style="background-color: #F8F8FF;" type="text">
                       </td>
+
                       <td>
-                        <button onclick="addMenu()">添加</button>
+                        <button id="submitBtn">添加</button>
                       </td>
                     </tr>
                     </tbody>
@@ -103,7 +105,7 @@
 <!-- End custom js for this page-->
 
 <!--点击提交按钮的事件-->
-<script src="../webapp/static/js/getMsg.js"></script>
+<script src="static/js/addMenu.js"></script>
 </body>
 
 </html>

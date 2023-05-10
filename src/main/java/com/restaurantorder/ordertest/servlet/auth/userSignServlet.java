@@ -13,7 +13,7 @@ import org.thymeleaf.context.Context;
 import java.io.IOException;
 
 @WebServlet("/sign")
-public class signServlet extends HttpServlet {
+public class userSignServlet extends HttpServlet {
     SignService signService;
 
     @Override
@@ -46,7 +46,7 @@ public class signServlet extends HttpServlet {
             req.getSession().setAttribute("sign-success","恭喜注册成功！");
             this.doGet(req,resp);
         }else {
-            req.getSession().setAttribute("sign-fail","注册失败！请检查密码是否一致");
+            req.getSession().setAttribute("sign-fail", "注册失败！请检查密码是否一致或用户名已存在！");
         }
     }
 }

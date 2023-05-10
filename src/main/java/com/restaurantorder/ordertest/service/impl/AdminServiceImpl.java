@@ -4,6 +4,7 @@ import com.restaurantorder.ordertest.MD5.MD5;
 import com.restaurantorder.ordertest.dao.AdminMapper;
 import com.restaurantorder.ordertest.entity.Admin;
 import com.restaurantorder.ordertest.entity.Food;
+import com.restaurantorder.ordertest.entity.User;
 import com.restaurantorder.ordertest.service.AdminService;
 import com.restaurantorder.ordertest.util.MybatisUtil;
 import jakarta.servlet.http.HttpSession;
@@ -78,14 +79,64 @@ public class AdminServiceImpl implements AdminService {
             return true;
         } catch (Exception e) {
             return false;
+        } finally {
+            sqlSession.close();
+        }
+    }
+
+
+    @Override
+    public Double getSumPrice() {
+
+        try (SqlSession sqlSession = MybatisUtil.getSession()) {
+            AdminMapper adminMapper = sqlSession.getMapper(AdminMapper.class);
+
+            Double s = adminMapper.getSumPrice();
+
+            if (s == null) {
+                return (double) 0;
+            }
+
+            return s;
         }
     }
 
     @Override
-    public List<Food> getFoodList() {
+    public Integer getSumOrder() {
         try (SqlSession sqlSession = MybatisUtil.getSession()) {
             AdminMapper adminMapper = sqlSession.getMapper(AdminMapper.class);
-            return adminMapper.getFoodList();
+
+            Integer i = adminMapper.getSumOrder();
+
+            if (i == null) {
+                return 0;
+            }
+
+            return i;
+        }
+    }
+
+    @Override
+    public Integer getSumCustomer() {
+        try (SqlSession sqlSession = MybatisUtil.getSession()) {
+            AdminMapper adminMapper = sqlSession.getMapper(AdminMapper.class);
+
+            Integer k = adminMapper.getSumCustomer();
+
+            if (k == null) {
+                return 0;
+            }
+
+            return k;
+        }
+    }
+
+    @Override
+    public List<User> getUserList() {
+        try (SqlSession sqlSession = MybatisUtil.getSession()) {
+            AdminMapper adminMapper = sqlSession.getMapper(AdminMapper.class);
+
+            return adminMapper.getUserList();
         }
     }
 }

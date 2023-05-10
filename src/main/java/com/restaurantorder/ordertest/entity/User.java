@@ -1,6 +1,5 @@
 package com.restaurantorder.ordertest.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
@@ -10,6 +9,12 @@ public class User {
     private String password;
 
     public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    public User(int id, String username, String password) {
+        this.id = id;
         this.username = username;
         this.password = password;
     }

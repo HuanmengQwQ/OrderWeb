@@ -10,21 +10,25 @@ import org.apache.ibatis.session.SqlSession;
 public class SignServiceImpl implements SignService {
     @Override
     public boolean check(String username, String password, String repeatpassword) {
-        try(SqlSession sqlSession = MybatisUtil.getSession()) {
+        try (SqlSession sqlSession = MybatisUtil.getSession()) {
             String saltPassword = MD5.md5(password);
-            User user = new User(username,saltPassword);
-            System.out.println(user.getId());
 
-            if(password.equals(repeatpassword)){
+            if (password.equals(repeatpassword)) {
+
                 UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-                int i = userMapper.setUser(user);
-                if(i > 0){
-                    return true;
+                User u = userMapper.getUserByName(username);
+                //判断用户名是否存在
+                if (u != null) {
+                    User user = new User(username, saltPassword);
+                    int i = userMapper.setUser(user);
+                    if (i > 0) {
+                        return true;
+                    }
                 }
-            }else {
+            } else {
                 return false;
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return false;

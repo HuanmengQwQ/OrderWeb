@@ -43,33 +43,77 @@
 //     }
 // }
 
-$(function () {
-    //绑定按钮的点击事件
-    $("#submitBtn").on("click", function () {
-        //获取表单数据
-        var formData = $("#DishForm").serialize();
-        //发送ajax请求
+// $(function () {
+//     //绑定按钮的点击事件
+//     $("#submitBtn").on("click", function () {
+//         //获取表单数据
+//         let formData = $("#DishForm").serialize();
+//
+//         console.log(formData);
+//         //发送ajax请求
+//         $.ajax({
+//             url: "http://localhost:8080/OrderTest/addMenu", //后台处理的url
+//             type: "POST", //请求方式
+//             data: formData, //发送的数据
+//             dataType: "json", //指定返回的数据类型为json
+//             success: function (data) {
+//                 //请求成功，获取响应数据
+//                 var response = data;
+//                 //判断是否提交成功
+//                 if (response.status === "success") {
+//                     //提交成功，显示提示信息
+//                     alert(response.message);
+//                 } else {
+//                     //提交失败，显示错误信息
+//                     alert(response.error);
+//                 }
+//             },
+//             error: function () {
+//                 //请求失败，处理错误信息
+//                 alert("请求失败");
+//             }
+//         });
+//     });
+// });
+
+//input元素
+var fileInput = document.querySelector('.input-file');
+//filelist对象
+var filelist = fileInput.files;
+//file对象 var file = filelist.item(0) 或者
+var file = filelist[0];
+
+var fileInput = document.querySelector('.input-file');
+var tip = document.querySelector('.tip');
+
+fileInput.addEventListener('change', function (e) { //监听change事件，选择文件后触发
+    if (this.files.length === 1) { //处理文件名
+        tip.textContent = this.files[0].name;
+    } else {
+        tip.textContent = '已选择 ' + this.files.length + ' 个文件';
+    }
+})
+
+$(document).ready(function () {
+    $('.formsDish').submit(function (event) {
+        event.preventDefault();
+        var formData = new FormData(this);
         $.ajax({
-            url: "http://localhost:8080/OrderTest/addMenu", //后台处理的url
-            type: "POST", //请求方式
-            data: formData, //发送的数据
-            dataType: "json", //指定返回的数据类型为json
-            success: function (data) {
-                //请求成功，获取响应数据
-                var response = data;
-                //判断是否提交成功
-                if (response.status === "success") {
-                    //提交成功，显示提示信息
-                    alert(response.message);
-                } else {
-                    //提交失败，显示错误信息
-                    alert(response.error);
-                }
+            url: 'http://localhost:8080/OrderTest/addMenu',
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+                // 在弹窗中显示服务器响应
+                alert(response);
+                console.log(response);
             },
-            error: function () {
-                //请求失败，处理错误信息
-                alert("请求失败");
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.error(errorThrown);
             }
         });
     });
 });
+
+

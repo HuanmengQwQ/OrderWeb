@@ -2,6 +2,7 @@ package com.restaurantorder.ordertest.dao;
 
 import com.restaurantorder.ordertest.entity.Admin;
 import com.restaurantorder.ordertest.entity.Food;
+import com.restaurantorder.ordertest.entity.User;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -31,4 +32,20 @@ public interface AdminMapper {
     })
     @Select("SELECT * FROM menu")
     List<Food> getFoodList();
+
+    @Select("SELECT SUM(money) FROM userprice")
+    Double getSumPrice();
+
+    @Select("SELECT COUNT(*) FROM od;")
+    Integer getSumOrder();
+
+    @Select("SELECT COUNT(uid) FROM od GROUP BY uid")
+    Integer getSumCustomer();
+
+    @Results({
+            @Result(column = "uid", property = "id"),
+            @Result(column = "username", property = "username")
+    })
+    @Select("Select uid,username FROM user")
+    List<User> getUserList();
 }

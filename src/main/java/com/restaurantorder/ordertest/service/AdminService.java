@@ -1,6 +1,6 @@
 package com.restaurantorder.ordertest.service;
 
-import com.restaurantorder.ordertest.entity.Food;
+import com.restaurantorder.ordertest.entity.User;
 import jakarta.servlet.http.HttpSession;
 
 import java.util.List;
@@ -14,5 +14,11 @@ public interface AdminService {
 
     boolean delMenu(String id);
 
-    List<Food> getFoodList();
+    Double getSumPrice();
+
+    Integer getSumOrder();
+
+    Integer getSumCustomer();
+
+    List<User> getUserList();
 }

@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/delMenu")
-public class delMenu extends HttpServlet {
+public class delMenuServlet extends HttpServlet {
     AdminService adminService;
 
     @Override

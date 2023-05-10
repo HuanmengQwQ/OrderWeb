@@ -1,14 +1,14 @@
 package com.restaurantorder.ordertest.filter;
 
-import com.restaurantorder.ordertest.entity.Admin;
 import com.restaurantorder.ordertest.entity.User;
-import jakarta.servlet.*;
-import jakarta.servlet.annotation.*;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.*;
 
 import java.io.IOException;
 
-@WebFilter(urlPatterns = "/order")
+@WebFilter(urlPatterns = {"/userIndex", "/cart", "/addCart", "/changeCartFood", "/checkout"})
 public class orderFilter extends HttpFilter {
 
     @Override
@@ -18,9 +18,9 @@ public class orderFilter extends HttpFilter {
         if(check(url)){
             HttpSession session = request.getSession();
             Cookie[] cookies = request.getCookies();
-            Admin admin = (Admin) session.getAttribute("Admin");
+            User user = (User) session.getAttribute("user");
 
-            if (admin == null || cookies ==null){
+            if (user == null || cookies == null) {
                 response.sendRedirect("login");
             }
         }
@@ -28,9 +28,8 @@ public class orderFilter extends HttpFilter {
     }
 
     private boolean check(String url){
-        if (!url.contains("static/")){
+        if (!url.contains("/static/") || !url.contains("/orderStatic/")) {
             return true;
-        }
-        else return false;
+        } else return false;
     }
 }

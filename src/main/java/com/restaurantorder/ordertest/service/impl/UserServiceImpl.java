@@ -45,4 +45,12 @@ public class UserServiceImpl implements UserService {
 
         return null;
     }
+
+    @Override
+    public User getUserByName(String name) {
+        try (SqlSession sqlSession = MybatisUtil.getSession()) {
+            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+            return userMapper.getUserByName(name);
+        }
+    }
 }

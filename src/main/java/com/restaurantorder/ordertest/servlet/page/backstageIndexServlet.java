@@ -30,6 +30,9 @@ public class backstageIndexServlet extends HttpServlet {
         HttpSession session = req.getSession();
         String name = (String) session.getAttribute("name");
         context.setVariable("name", name);
+        context.setVariable("sumPrice", adminService.getSumPrice());
+        context.setVariable("sumOrder", adminService.getSumOrder());
+        context.setVariable("sumCustomer", adminService.getSumCustomer());
 
         ThymeleafUtil.getEngine().process("backstage-index.html", context, resp.getWriter());
     }

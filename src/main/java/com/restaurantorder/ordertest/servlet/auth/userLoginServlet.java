@@ -6,18 +6,16 @@ import com.restaurantorder.ordertest.util.ThymeleafUtil;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.Cookie;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.*;
 import org.thymeleaf.context.Context;
 
 import java.io.IOException;
 
 @WebServlet("/login")
-public class loginServlet extends HttpServlet {
+public class userLoginServlet extends HttpServlet {
 
     UserService userService;
+
     @Override
     public void init(ServletConfig config) throws ServletException {
         userService = new UserServiceImpl();
@@ -34,23 +32,26 @@ public class loginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
         String username = req.getParameter("username");
         String password = req.getParameter("Password");
         String remember = req.getParameter("remember-me");
 
+
         if (userService.auth(username, password, req.getSession())) {
             //设置cookies
-            if (!remember.isEmpty()) {
+            if (remember != null) {
                 Cookie cookie_username = new Cookie("username", username);
                 cookie_username.setMaxAge(7 * 24 * 60 * 60);
                 Cookie cookie_password = new Cookie("password", password);
                 cookie_password.setMaxAge(7 * 24 * 60 * 60);
                 resp.addCookie(cookie_username);
                 resp.addCookie(cookie_password);
-
-
             }
-            resp.getWriter().println("登陆成功");
+
+            session.setAttribute("username", username);
+
+            resp.sendRedirect("userIndex");
         } else {
             req.getSession().setAttribute("user-login-fail", new Object());
             this.doGet(req, resp);

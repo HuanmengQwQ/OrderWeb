@@ -15,4 +15,8 @@ public interface UserMapper {
 
     @Select("SELECT contain FROM note WHERE n_id = 1")
     String getNote();
+
+    @Select("SELECT * FROM user WHERE username = #{username}")
+    User getUserByName(@Param("username") String username);
+
 }

@@ -35,7 +35,7 @@
 						<div class="card bg-gradient-warning text-white">
 							<div class="card-body">
 								<h4 class="font-weight-normal mb-3">收入</h4>
-								<h2 class="font-weight-normal mb-5">$ 15,00000.00</h2>
+								<h2 class="font-weight-normal mb-5" th:text="'￥' + ${sumPrice}"></h2>
 							</div>
 						</div>
 					</div>
@@ -43,7 +43,7 @@
 						<div class="card bg-gradient-info text-white">
 							<div class="card-body">
 								<h4 class="font-weight-normal mb-3">需准备的订单</h4>
-								<h2 class="font-weight-normal mb-5">45633456</h2>
+                                <h2 class="font-weight-normal mb-5" th:text="${sumOrder}"></h2>
 							</div>
 						</div>
 					</div>
@@ -51,7 +51,7 @@
 						<div class="card bg-gradient-success text-white">
 							<div class="card-body">
 								<h4 class="font-weight-normal mb-3">点餐人数</h4>
-								<h2 class="font-weight-normal mb-5">955741235</h2>
+                                <h2 class="font-weight-normal mb-5" th:text="${sumCustomer}"></h2>
 							</div>
 						</div>
 					</div>

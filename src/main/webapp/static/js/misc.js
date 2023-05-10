@@ -14,7 +14,7 @@
             var $this = $(this);
             if (current === "") {
                 //for root url
-                if ($this.attr('href').indexOf("index.html") !== -1) {
+                if ($this.attr('href').indexOf("user-index.html") !== -1) {
                     $(this).parents('.nav-item').last().addClass('active');
                     if ($(this).parents('.sub-menu').length) {
                         $(this).closest('.collapse').addClass('show');

@@ -8,7 +8,7 @@ import jakarta.servlet.http.*;
 
 import java.io.IOException;
 
-@WebFilter(urlPatterns = {"/adminIndex", "/addMenu", "/manageMenu"})
+@WebFilter(urlPatterns = {"/adminIndex", "/addMenu", "/manageMenu", "/manageCustomer"})
 public class backstageFilter extends HttpFilter {
     @Override
     public void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
@@ -17,9 +17,9 @@ public class backstageFilter extends HttpFilter {
         if(check(url)){
             HttpSession session = req.getSession();
             Cookie[] cookies = req.getCookies();
-            Admin user = (Admin) session.getAttribute("admin");
+            Admin admin = (Admin) session.getAttribute("admin");
 
-            if (user == null || cookies ==null){
+            if (admin == null || cookies == null) {
                 res.sendRedirect("admin");
             }
         }

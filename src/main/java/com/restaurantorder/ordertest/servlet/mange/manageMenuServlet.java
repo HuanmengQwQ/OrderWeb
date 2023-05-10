@@ -1,7 +1,9 @@
 package com.restaurantorder.ordertest.servlet.mange;
 
 import com.restaurantorder.ordertest.service.AdminService;
+import com.restaurantorder.ordertest.service.FoodService;
 import com.restaurantorder.ordertest.service.impl.AdminServiceImpl;
+import com.restaurantorder.ordertest.service.impl.FoodServiceImpl;
 import com.restaurantorder.ordertest.util.ThymeleafUtil;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -16,10 +18,12 @@ import java.io.IOException;
 @WebServlet("/manageMenu")
 public class manageMenuServlet extends HttpServlet {
     AdminService adminService;
+    FoodService foodService;
 
     @Override
     public void init() throws ServletException {
         adminService = new AdminServiceImpl();
+        foodService = new FoodServiceImpl();
     }
 
     @Override
@@ -28,7 +32,7 @@ public class manageMenuServlet extends HttpServlet {
         HttpSession session = req.getSession();
         String name = (String) session.getAttribute("name");
         context.setVariable("name", name);
-        context.setVariable("FoodList", adminService.getFoodList());
+        context.setVariable("FoodList", foodService.getFoodList());
         ThymeleafUtil.getEngine().process("managingMenu.html", context, resp.getWriter());
     }
 

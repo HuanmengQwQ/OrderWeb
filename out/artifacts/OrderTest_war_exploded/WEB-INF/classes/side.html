@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<!-- partial:partials/_sidebar.html -->
+<nav class="sidebar sidebar-offcanvas" id="sidebar" th:fragment="side">
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link" href="adminIndex">
+                <span class="menu-title">概览</span>
+                <i class="mdi mdi-home menu-icon"></i>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="orders">
+                <span class="menu-title">订单</span>
+                <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="manageCustomer">
+                <span class="menu-title">管理客户</span>
+                <i class="mdi mdi-contacts menu-icon"></i>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="manageMenu">
+                <span class="menu-title">管理菜品</span>
+                <i class="mdi mdi-table-large menu-icon"></i>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<aside class="sidebar-wrapper" th:fragment="aside">
+    <div class="side-menu-wrap">
+        <ul class="main-menu">
+            <li>
+                <a class="active" href="javascript:void(0);">
+                            <span class="icon-menu feather-icon">
+                                <svg class="feather feather-package" fill="none" stroke="currentColor"
+                                     stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                     viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="16.5" x2="7.5"
+                                                                                                   y1="9.4"
+                                                                                                   y2="4.21"></line><path
+                                        d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline
+                                        points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" x2="12"
+                                                                                                y1="22.08" y2="12"></line></svg>
+                            </span>
+                    <span class="menu-text">
+                                点单
+                            </span>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="userIndex">
+                                    <span class="icon-dash">
+                                    </span>
+                            <span class="menu-text">
+                                        菜单
+                                    </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="cart">
+                                    <span class="icon-dash">
+                                    </span>
+                            <span class="menu-text">
+                                        购物车
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="order">
+                            <span class="icon-menu feather-icon">
+                                <svg class="feather feather-truck" fill="none" stroke="currentColor"
+                                     stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                     viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect height="13" width="15" x="1"
+                                                                                                 y="3"></rect><polygon
+                                        points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5"
+                                                                                                    r="2.5"></circle><circle
+                                        cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                            </span>
+                    <span class="menu-text">
+                                已点订单
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</aside>
+</body>
+</html>

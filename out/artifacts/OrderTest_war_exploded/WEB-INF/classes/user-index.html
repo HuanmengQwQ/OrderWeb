@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<!--<![endif]-->
+<!-- Begin Head -->
+
+<head>
+	<title>菜单</title>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="">
+	<meta name="MobileOptimized" content="320">
+	<!--Start Style -->
+	<link rel="stylesheet" type="text/css" href="orderStatic/css/fonts.css">
+	<link rel="stylesheet" type="text/css" href="orderStatic/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="orderStatic/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="orderStatic/css/icofont.min.css">
+	<link rel="stylesheet" type="text/css" href="orderStatic/css/style.css">
+	<link rel="stylesheet" id="theme-change" type="text/css" href="">
+</head>
+
+
+<body>
+<div class="loader">
+	<div class="spinner">
+		<img src="static/picture/loader.gif" alt="">
+	</div>
+</div>
+<!-- Main Body -->
+<div class="page-wrapper">
+	<!-- Header Start -->
+	<div th:replace="hearder.html::header"></div>
+	<!-- Sidebar Start -->
+	<div th:replace="side.html::aside"></div>
+	<!-- Container Start -->
+	<div class="page-wrapper">
+		<div class="main-content">
+			<!-- Page Title Start -->
+			<div class="row">
+				<div class="colxl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+					<div class="page-title-wrapper">
+						<div class="page-title-box">
+							<h4 class="page-title">菜单</h4>
+						</div>
+						<div class="ad-breadcrumb">
+							<ul>
+								<li>
+									<div class="input-group">
+										<form method="get" action="search">
+											<input type="text" name="foodName" class="form-control"
+												   style="width: 200px;" placeholder="搜索您想吃的..."/>
+											<div class="input-group-append">
+												<button class="input-group-addon search-btn" type="submit"><i
+														class="fa fa-search"></i></button>
+											</div>
+										</form>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+			    <div class="col-lg-12">
+			        <div class="card">
+			            <div class="card-body pb-2">
+			                <div class="row">
+			                    <div class="col-xl-3 col-lg-6 col-md-6" th:each="Food : ${FoodList}">
+			                        <div class="prooduct-details-box">
+			                            <div class="media">
+			                                <img th:src="'static/images' + ${Food.getMname()} + '.jpg'" alt="" onerror="this.src='static/images/images.jpg'">
+			                                <div class="media-body ms-3">
+			                                    <div class="product-name">
+			                                        <h6><a href="javascript:;" class="text-primary" title="" th:text="${Food.getMname()}"></a></h6>
+			                                    </div>
+			                                    <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+			                                    <div class="price">
+			                                        <div class="text-muted me-2" th:text="价格 + ': ￥' + ${Food.getMprice()}"></div>
+			                                    </div>
+			                                    <div class="avaiabilty">
+			                                        <div class="text-success">销售中</div>
+			                                        <div class="text-info" th:text="${Food.getMintrodution()}"></div>
+			                                        <button type="button" class="btn btn-primary squer-btn sm-btn mt-2 mr-2"><a th:href="'http://localhost:8080/OrderTest/addCart?mid=' + ${Food.getM_id()}">下单</a></button>
+			                                    </div>
+			                                </div>
+			                            </div>
+			                        </div>
+			                    </div>
+			                </div>
+			            </div>
+			        </div>
+			    </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Script Start -->
+<script src="orderStatic/js/jquery.min.js"></script>
+<script src="orderStatic/js/popper.min.js"></script>
+<script src="orderStatic/js/bootstrap.min.js"></script>
+<script src="orderStatic/js/custom.js"></script>
+</body>
+
+</html>

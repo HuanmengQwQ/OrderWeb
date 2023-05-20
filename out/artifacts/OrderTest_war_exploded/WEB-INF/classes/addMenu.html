@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+  <title>添加菜品</title>
+  <link href="static/node_modules/mdi/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="static/node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css" rel="stylesheet">
+  <!-- plugins:css -->
+  <!-- endinject -->
+  <!-- inject:css -->
+  <link href="static/css/backstageStyle.css" rel="stylesheet">
+  <link href="static/css/update.css" rel="stylesheet">
+  <!-- endinject -->
+</head>
+
+<body>
+<div class="container-scroller">
+  <!-- partial:../../partials/_navbar.html -->
+  <div th:replace="hearder.html::title"></div>
+  <!-- partial -->
+  <div class="container-fluid page-body-wrapper">
+    <div class="row row-offcanvas row-offcanvas-right">
+      <!-- partial:partials/_sidebar.html -->
+      <div th:replace="side.html::side"></div>
+      <!-- partial -->
+      <div class="content-wrapper">
+        <div class="row">
+
+          <div class="col grid-margin stretch-card align-self-center">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">编写菜品</h4>
+                <form class="formsDish" enctype="multipart/form-data">
+                  <div class="form-group">
+                    <label>上传菜品图片</label><br>
+                    <div class="upload-file">
+                      <input accept=".jpg" class="input-file" id="fileInput" multiple="false" name="DishImg"
+                             type="file">
+                      <span class="tip">点击上传jpg图片</span>
+                    </div>
+                    <div class="form-group" style="margin-top: 10px !important;">
+                      <label for="NameOfDish">菜名</label>
+                      <input class="form-control" id="NameOfDish" name="NameOfDish" placeholder="请在此填写菜名"
+                             type="text">
+                    </div>
+                    <div class="form-group">
+                      <label for="DishPrice">单价</label>
+                      <input class="form-control" id="DishPrice" name="DishPrice" placeholder="请在此填写单价"
+                             type="number" value="0.00" step="0.01">
+                    </div>
+                    <div class="form-group">
+                      <label for="Introduction">简介</label>
+                      <textarea class="form-control" id="Introduction" name="Introduction" placeholder="写点介绍"
+                                rows="2"></textarea>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-center">
+                    <button class="btn btn-success mr-2 mx-auto" style="width: 100px !important;color: black;"
+                            type="submit">添加
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- content-wrapper ends -->
+      <!-- partial:../../partials/_footer.html -->
+      <!-- partial -->
+    </div>
+    <!-- row-offcanvas ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
+</div>
+<!-- container-scroller -->
+<!-- plugins:js -->
+<script src="static/node_modules/jquery/dist/jquery.min.js"></script>
+<script src="static/node_modules/popper.js/dist/umd/popper.min.js"></script>
+<script src="static/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="static/node_modules/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.min.js"></script>
+<!-- endinject -->
+<!-- Plugin js for this page-->
+<script src="static/node_modules/icheck/icheck.min.js"></script>
+<script src="static/bower_components/typeahead.js/dist/typeahead.bundle.min.js"></script>
+<script src="static/node_modules/select2/dist/js/select2.min.js"></script>
+<!-- End plugin js for this page-->
+<!-- inject:js -->
+<script src="static/js/off-canvas.js"></script>
+<script src="static/js/misc.js"></script>
+<!-- endinject -->
+
+<!-- End custom js for this page-->
+
+<!--点击提交按钮的事件-->
+<script src="static/js/addMenu.js"></script>
+</body>
+
+</html>

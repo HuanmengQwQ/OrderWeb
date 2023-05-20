@@ -1,0 +1,396 @@
+/*--
+Author: W3layouts
+Author URL: http://w3layouts.com
+--*/
+
+/* reset code */
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --primary-color: #FE79A2;
+    --secondary-color: #1545CB;
+    --font-color: #666;
+    --bg-color: #fff;
+    --heading-color: #3f3a64;
+    --border-radius: 8px;
+    --border-radius-full: 35px;
+    --border-color: transparent;
+    --border-color-light: #eee;
+    --bg-grey: #f7f7f7;
+    --bg-lightgrey: #f8f9fa;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    color: #585858;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+/*  wrapper */
+.wrapper {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 576px) {
+    .wrapper {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .wrapper {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .wrapper {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .wrapper {
+        max-width: 1140px;
+    }
+}
+
+/*  /wrapper */
+
+.d-grid {
+    display: grid;
+}
+
+button,
+input,
+select {
+    -webkit-appearance: none;
+    outline: none;
+}
+
+button,
+.btn,
+select {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    font-size: 18px;
+    line-height: 28px;
+}
+
+body {
+    background: #c9f0f8;
+    margin: 0;
+    padding: 0;
+}
+
+form,
+fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+.left_img{
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/*-- //Reset-Code --*/
+
+
+.signinform {
+    padding: 50px 30px;
+}
+
+a.brand-logo {
+    color: #3f3a64;
+    font-size: 40px;
+    line-height: 50px;
+    font-weight: 600;
+}
+
+.logo {
+    text-align: center;
+    font-size: 100%;
+}
+
+.map-content-9 {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    max-width: 900px;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.1) 2px 9px 49px -17px;
+    margin: 60px auto;
+    border-radius: 5px;
+    background: var(--bg-color);
+}
+
+.info-grids {
+    width: 100%;
+    padding: 60px 40px;
+}
+
+.map-content-9 form input,
+.map-content-9 form textarea {
+    color: #666;
+    font-size: 18px;
+    line-height: 28px;
+    width: 100%;
+    height: 58px;
+    margin-bottom: 20px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(238, 238, 238);
+    border-image: initial;
+    padding: 12px 30px;
+    background: rgb(248, 249, 250);
+    border-radius: var(--border-radius-full);
+}
+
+.social-media {
+    margin-top: 15px;
+}
+
+
+.social-media a {
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding: 16px 20px;
+    border-radius: 35px;
+}
+
+.social-media a.fb {
+    color: rgb(255, 255, 255);
+    background: rgb(59, 89, 152);
+}
+
+.social-media a.tw {
+    color: rgb(255, 255, 255);
+    background: rgb(29, 161, 242);
+}
+
+.social-media a span {
+    margin-right: 8px;
+}
+
+.w3l-loginblock p a {
+    color: var(--heading-color);
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.w3l-loginblock p a:hover {
+    color: var(--primary-color);
+}
+
+.w3l-loginblock .input-field label {
+    font-weight: 700;
+    color: var(--heading-color);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.w3l-loginblock .input-field label::before {
+    display: inline-flex;
+    margin-right: 7px;
+    margin-left: 5px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-color);
+    content: "";
+    border-radius: 3px;
+}
+
+.w3l-loginblock .check-remaind {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    user-select: none;
+}
+
+.w3l-loginblock .check-remaind input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0px;
+    width: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.w3l-loginblock .checkmark {
+    position: absolute;
+    top: 4px;
+    left: 6px;
+    height: 18px;
+    width: 18px;
+    background-color: #f7f7f7;
+    border-radius: 4px;
+}
+
+.w3l-loginblock .check-remaind .checkmark::after {
+    left: 6px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    transform: rotate(45deg);
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-image: initial;
+    border-width: 0px 2px 2px 0px;
+}
+
+.w3l-loginblock .checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.w3l-loginblock .check-remaind input:checked~.checkmark::after {
+    display: block;
+}
+
+.w3l-loginblock .check-remaind:hover input~.checkmark {
+    background-color: var(--secondary-color);
+}
+
+.w3l-loginblock .check-remaind input:checked~.checkmark {
+    background-color: var(--secondary-color);
+}
+
+.w3l-loginblock .check-remaind input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.btn-style {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    background-color: #0169c7;
+    padding: 12px 40px;
+    transition: all 0.3s ease-in 0s;
+    border: none;
+    border-radius: var(--border-radius-full);
+}
+
+.btn-style:hover {
+    opacity: 0.8;
+}
+
+.footer {
+    text-align: center;
+}
+
+@media screen and (max-width: 991px) {
+    .brand-logo {
+        font-size: 30px;
+        line-height: 40px;
+    }
+}
+
+@media (max-width: 736px) {
+    .map-content-9 {
+        flex-direction: column;
+    }
+
+}
+
+@media screen and (max-width: 568px) {
+    .map-content-9 {
+        margin: 35px auto;
+    }
+}
+
+@media screen and (max-width: 415px) {
+    .social-media a {
+        padding: 14px 20px;
+    }
+
+    .map-content-9 form input,
+    .map-content-9 form textarea {
+        font-size: 16px;
+        height: 50px;
+        padding: 12px 30px;
+    }
+
+    .info-grids {
+        padding: 40px 30px;
+    }
+
+    .btn-style {
+        font-size: 17px;
+        padding: 10px 40px;
+    }
+
+    .map-content-9 {
+        margin: 25px auto;
+    }
+
+    .signinform {
+        padding: 30px 15px;
+    }
+}
+
+@media screen and (max-width: 384px) {
+    a.brand-logo {
+        font-size: 26px;
+        line-height: 36px;
+    }
+
+    p {
+        font-size: 17px;
+    }
+}

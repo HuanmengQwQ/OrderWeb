@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<body>
+<!--  Admin头部模板-->
+<nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row" th:fragment="title">
+    <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+        <a class="navbar-brand brand-logo" href="adminIndex"><img alt="logo"
+                                                                  src="static/images/logo1.png"/></a>
+        <a class="navbar-brand brand-logo-mini" href="adminIndex"><img alt="logo" src="images/logo-mini.svg"/></a>
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-stretch">
+        <ul class="navbar-nav navbar-nav-right">
+            <li class="nav-item dropdown">
+                <a aria-expanded="false" class="nav-link dropdown-toggle nav-profile" data-toggle="dropdown" href="#"
+                   id="profileDropdown">
+                    <img alt="image" src="static/images/faces/user.jpg">
+                    <span class="d-none d-lg-inline" th:text="${name}"></span>
+                </a>
+                <div aria-labelledby="profileDropdown" class="dropdown-menu navbar-dropdown w-100">
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="adminLogout">
+                        <i class="mdi mdi-logout mr-2 text-primary"></i>
+                        登出
+                    </a>
+                </div>
+            </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" data-toggle="offcanvas"
+                type="button">
+            <span class="mdi mdi-menu"></span>
+        </button>
+    </div>
+</nav>
+
+<!--用户头部模板-->
+<header class="header-wrapper main-header" th:fragment="header">
+    <div class="header-inner-wrapper">
+        <div class="logo-wrapper">
+            <a class="admin-logo" href="userIndex">
+                <img alt="" src="static/images/logo1.png">
+            </a>
+        </div>
+        <div class="header-right">
+            <div class="serch-wrapper">
+                <form>
+                    <input placeholder="搜索" type="text">
+                </form>
+                <a class="search-close" href="javascript:void(0);"><span class="icofont-close-line"></span></a>
+            </div>
+            <div class="header-left">
+                <div class="header-links">
+                    <a class="toggle-btn" href="javascript:void(0);">
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+            <div class="header-controls">
+                <div class="user-info-wrapper header-links">
+                    <a class="user-info" href="javascript:void(0);">
+                        <img alt="" class="user-img" src="static/images/faces/user.jpg">
+                    </a>
+                    <div class="user-info-box">
+                        <div class="drop-down-header">
+                            <h4 id="username" th:text="${username}"></h4>
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="profile.html">
+                                    <i class="far fa-edit"></i> 编辑个人资料
+                                </a>
+                            </li>
+                            <li>
+                                <a href="login.html">
+                                    <i class="fas fa-sign-out-alt"></i> 登出
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+</body>
+</html>

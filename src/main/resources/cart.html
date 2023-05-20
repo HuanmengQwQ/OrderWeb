@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<!--<![endif]-->
+<!-- Begin Head -->
+
+<head>
+    <title>购物车</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <meta content="" name="author">
+    <meta content="320" name="MobileOptimized">
+    <!--Start Style -->
+    <link href="orderStatic/css/fonts.css" rel="stylesheet" type="text/css">
+    <link href="orderStatic/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="orderStatic/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="orderStatic/css/icofont.min.css" rel="stylesheet" type="text/css">
+    <link href="orderStatic/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+
+<body>
+<div class="loader">
+    <div class="spinner">
+        <img alt="" src="static/picture/loader.gif">
+    </div>
+</div>
+<!-- Main Body -->
+<div class="page-wrapper">
+    <!-- Header Start -->
+    <div th:replace="hearder.html::header"></div>
+    <!-- Sidebar Start -->
+    <div th:replace="side.html::aside"></div>
+    <!-- Container Start -->
+    <div class="page-wrapper">
+        <div class="main-content">
+            <!-- Page Title Start -->
+            <div class="row">
+                <div class="colxl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="page-title-wrapper">
+                        <div class="breadcrumb-list">
+                            <ul>
+                                <li class="breadcrumb-link">
+                                    <a href="javascript:void(0);"><i class="fas fa-home mr-2"></i>好食代</a>
+                                </li>
+                                <li class="breadcrumb-link active">购物车</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Table Start -->
+            <div class="row">
+                <!-- Styled Table Card-->
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="card table-card">
+                        <div class="card-header pb-0">
+                            <h4>购物车</h4>
+                        </div>
+                        <div class="card-body pb-4">
+                            <div class="chart-holder">
+                                <div class="table-responsive">
+                                    <table class="table table-styled mb-0">
+                                        <thead>
+                                        <tr>
+                                            <th>商品</th>
+                                            <th>商品名</th>
+                                            <th>单价</th>
+                                            <th>数量</th>
+                                            <th>操作</th>
+                                            <th>总价</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr class="cart-item" th:each="cartFood : ${cartList}">
+                                            <td>
+                                                <div class="img-chair">
+                                                    <img alt=" " onerror="this.src='static/images/images.jpg'"
+                                                         th:src="'static/' + ${cartFood.getMname()} + '.jpg'"/>
+                                                </div>
+                                            </td>
+                                            <td th:text="${cartFood.getMname()}"></td>
+                                            <td th:text="'￥' + ${cartFood.getMprice()}"></td>
+                                            <td>
+                                                <div class="int-table-quantity">
+                                                    <div class="quantity-wrapper">
+                                                        <div class="input-group">
+                                                            <span class="quantity-minus"> - </span>
+                                                            <input class="quantity" name="amount" th:id="${cartFood.getMid()}"
+                                                                   th:value="${cartFood.getMquantity()}"
+                                                                   type="number">
+                                                            <span class="quantity-plus"> + </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <a class="delete"
+                                                   onclick="return clearCartFood()" th:href="'http://localhost:8080/OrderTest/delCarFood?mid=' + ${cartFood.getMid()}"
+                                                   th:id="${cartFood.getMid()}"><i class="far fa-times-circle"></i></a>
+                                            </td>
+                                            <td th:text="'￥' + ${cartFood.getMtotalPrice()}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="ad-breadcrumb ad-breadcrumb2 dd-flex">
+                                                    <div class="form-group">
+                                                        <div class="ad-user-btn">
+                                                            <a class="clear-all" href="javascript:;">
+                                                                <button>清理购物车</button>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td><b>总价 :</b></td>
+                                            <td class="totalPrice" th:text="'￥' + ${totalPrice}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td><a class="btn btn-danger squer-btn mt-2 mr-2"
+                                                   href="userIndex">继续挑选</a></td>
+                                            <td><a class="btn btn-success squer-btn mt-2 mr-2"
+                                                   href="checkout">去结账</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Script Start -->
+<script src="orderStatic/js/jquery.min.js"></script>
+<script src="orderStatic/js/popper.min.js"></script>
+<script src="orderStatic/js/bootstrap.min.js"></script>
+<script src="orderStatic/js/custom.js"></script>
+<script src="orderStatic/js/changeFoodNum.js"></script>
+<script src="orderStatic/js/delFood.js"></script>
+<script src="orderStatic/js/clearCart.js"></script>
+</body>
+
+</html>

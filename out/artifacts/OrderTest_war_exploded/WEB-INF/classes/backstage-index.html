@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <title>概览</title>
+    <!-- plugins:css -->
+    <link href="static/node_modules/mdi/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="static/node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css" rel="stylesheet">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <link href="static/node_modules/jquery-bar-rating/dist/themes/css-stars.css" rel="stylesheet">
+    <link href="static/node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet"/>
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link href="static/css/backstageStyle.css" rel="stylesheet">
+    <!-- endinject -->
+    <link href="#" rel="shortcut icon"/>
+</head>
+<body>
+<div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <div th:replace="hearder.html::title"></div>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+        <div class="row row-offcanvas row-offcanvas-right">
+            <!-- partial:partials/_sidebar.html -->
+            <div th:replace="side.html::side"></div>
+            <!-- partial -->
+            <div class="content-wrapper">
+                <div class="row">
+                    <div class="col-md-4 stretch-card grid-margin">
+                        <div class="card bg-gradient-warning text-white">
+                            <div class="card-body">
+                                <h4 class="font-weight-normal mb-3">收入</h4>
+                                <h2 class="font-weight-normal mb-5" th:text="'￥' + ${sumPrice}"></h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 stretch-card grid-margin">
+                        <div class="card bg-gradient-info text-white">
+                            <div class="card-body">
+                                <h4 class="font-weight-normal mb-3">需准备的订单</h4>
+                                <h2 class="font-weight-normal mb-5" th:text="${sumOrder}"></h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 stretch-card grid-margin">
+                        <div class="card bg-gradient-success text-white">
+                            <div class="card-body">
+                                <h4 class="font-weight-normal mb-3">点餐人数</h4>
+                                <h2 class="font-weight-normal mb-5" th:text="${sumCustomer}"></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">编写公告栏内容</h4>
+                            <div class="form-group">
+                                <label for="note"></label>
+                                <textarea class="form-control" id="note" name="note" rows="3"
+                                          placeholder="写点什么..."></textarea>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-success mr-2 mx-auto" onclick="changeNote()"
+                                    style="width: 100px !important;color: black;margin-bottom: 20px;">确定
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <!-- partial -->
+    </div>
+    <!-- row-offcanvas ends -->
+</div>
+<!-- page-body-wrapper ends -->
+
+<!-- container-scroller -->
+
+<!-- plugins:js -->
+<script src="static/node_modules/jquery/dist/jquery.min.js"></script>
+<script src="static/node_modules/popper.js/dist/umd/popper.min.js"></script>
+<script src="static/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="static/node_modules/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.min.js"></script>
+<!-- endinject -->
+<!-- Plugin js for this page-->
+<script src="static/node_modules/chart.js/dist/Chart.min.js"></script>
+<!-- End plugin js for this page-->
+<!-- inject:js -->
+<script src="static/js/off-canvas.js"></script>
+<script src="static/js/misc.js"></script>
+<!-- endinject -->
+<!-- Custom js for this page-->
+<script src="static/js/dashboard.js"></script>
+<!-- End custom js for this page-->
+<script>
+    function changeNote() {
+        var note = $("#note").val();
+        console.log(note);
+
+        $.ajax({                                    //调用ajax发送数据
+            url: "http://localhost:8080/OrderTest/adminIndex",//发送给后台的url声明
+            type: "POST",//发送方式,post或者get
+            data: {"note": note},
+            dataType: "text", //声明返回值
+            success: function (response) {               //发送成功并且成功获得后台响应的时候，
+                alert("修改成功！"); //执行的操作
+                console.log(response);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {                    //发送失败了该执行的操作
+                alert("发生未知错误");
+                console.log(textStatus, errorThrown);
+            }
+        });
+    }
+</script>
+</body>
+
+</html>

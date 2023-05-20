@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <!-- Mobile Metas -->
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+  <!-- Site Metas -->
+  <meta content="" name="keywords"/>
+  <meta content="" name="description"/>
+  <meta name="author" content="" />
+
+  <title>首页</title>
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css"
+    href="static/css/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,700|Raleway:400,700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="static/css/homestyle.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="static/css/responsive.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+          <a class="navbar-brand" href="home">
+            <img src="static/images/logo.png" alt="" />
+            <span>
+              好食代
+            </span>
+          </a>
+
+          <div th:replace="homeHearder.html::homeHearder"></div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class=" slider_section position-relative">
+      <div class="side_heading">
+        <h5>
+          美
+          味
+          从
+          这
+          里
+          开
+          始
+        </h5>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-3 col-md-4 offset-md-1">
+            <div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
+                  01
+                </li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1">
+                  02
+                </li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2">
+                  03
+                </li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3">
+                  04
+                </li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="img-box b-1">
+                    <img src="static/images/slider-img.png" alt="" />
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="img-box b-2">
+                    <img src="static/images/hot-1.png" alt="" />
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="img-box b-3">
+                    <img src="static/images/hot-2.png" alt="" />
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="img-box b-4">
+                    <img src="static/images/hot-3.png" alt="" />
+                  </div>
+                </div>
+              </div>
+              <div class="carousel_btn-box">
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class=" col-md-5 offset-md-1">
+            <div class="detail-box">
+              <h1>
+                Good <br>
+                Food
+              </h1>
+              <h3 style="margin-top: 60px;margin-bottom: 0;font-weight:bold; color: #DC143C;">
+                  公告
+              </h3>
+              <div class="note_board">
+                <p style="font-size: 35px;" th:text="${note} == null?'':${note}"></p>
+              </div>
+              <div class="btn-box">
+                <a href="about" class="btn-1">
+                  关于我们
+                </a>
+                <a href="login" class="btn-2">
+                  点餐
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end slider section -->
+  </div>
+
+  <!-- about section -->
+  <section class="about_section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-5 offset-md-1">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                About <br>
+                Our <br>
+                Food
+              </h2>
+              <hr>
+            </div>
+            <p>
+              除了提供美味的菜肴，我们还会注重选择优质的原材料，并采用健康的烹饪方式，让顾客享受到健康美食的同时也不会影响健康
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 px-0">
+          <div class="img-box">
+            <img src="static/images/about-img.jpg" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+  <!-- dish section -->
+
+  <section class="dish_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="dish_container">
+            <div class="box">
+              <img src="static/images/dish.jpg" alt="">
+            </div>
+            <div class="box">
+              <img src="static/images/dish.jpg" alt="">
+            </div>
+            <div class="box">
+              <img src="static/images/dish.jpg" alt="">
+            </div>
+            <div class="box">
+              <img src="static/images/dish.jpg" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <hr>
+              <h2>
+                Our <br>
+                Food <br>
+                dishs
+              </h2>
+            </div>
+            <p>
+              在我们的餐厅里，您可以品尝到各种美味的菜肴，包括饮料，主菜等。每一道菜肴都会经过精心的烹制和摆盘，顾客可以在品尝美食的同时也可以享受视觉上的享受
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end dish section -->
+
+  <!-- hot section -->
+
+  <section class="hot_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          开始选择吃点什么吧
+        </h2>
+        <hr>
+      </div>
+      <p>
+        总有适合您胃口的食物
+    </div>
+    <div class="carousel_container">
+      <div class="container">
+        <div class="carousel-wrap ">
+          <div class="owl-carousel">
+            <div class="item">
+              <div class="box">
+                <div class="img-box">
+                  <img src="static/images/hot-1.png" />
+                </div>
+                <div class="detail-box">
+                  <h4>
+                    ￥56
+                  </h4>
+                  <a href="login">
+                    点餐
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="box">
+                <div class="img-box">
+                  <img src="static/images/hot-2.png" />
+                </div>
+                <div class="detail-box">
+                  <h4>
+                    ￥21
+                  </h4>
+                  <a href="login">
+                    点餐
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="box">
+                <div class="img-box">
+                  <img src="static/images/hot-3.png" />
+                </div>
+                <div class="detail-box">
+                  <h4>
+                    ￥30
+                  </h4>
+                  <a href="login">
+                    点餐
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end hot section -->
+
+  <!-- client section -->
+
+  <section class="client_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <hr>
+        <h2>
+          来看看顾客的评价
+        </h2>
+      </div>
+      <div id="carouselExample2Indicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExample2Indicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExample2Indicators" data-slide-to="1"></li>
+          <li data-target="#carouselExample2Indicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="box ">
+              <div class="client_id">
+                <div class="img-box">
+                  <img src="static/images/client.png" alt="" class="img-fluid">
+                </div>
+                <h4>
+                  Jacksmith
+                </h4>
+              </div>
+              <div class="detail-box">
+                <p>
+                  我最近光顾了这家餐厅，我对它的印象非常好。这家餐厅的服务非常周到，服务员很热情，对顾客的需求非常关心，而且菜品也非常美味。
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="box ">
+              <div class="client_id">
+                <div class="img-box">
+                  <img src="static/images/client2.png" alt="" class="img-fluid">
+                </div>
+                <h4>
+                  小林
+                </h4>
+              </div>
+              <div class="detail-box">
+                <p>
+                  这家餐厅的装修非常有品味，非常有现代感和时尚感。进入餐厅的瞬间就能感受到愉悦和舒适。餐厅的菜品真的是太美味了！我尝试了几种不同的菜肴，每一个都非常出色。无论是食材的选择还是菜肴的制作都非常用心，让人口感上的享受和视觉上的享受同样美妙。
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="box ">
+              <div class="client_id">
+                <div class="img-box">
+                  <img src="static/images/client3.png" alt="" class="img-fluid">
+                </div>
+                <h4>
+                  飞翔的企鹅
+                </h4>
+              </div>
+              <div class="detail-box">
+                <p>
+                  难得一见的好餐厅！
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- footer section -->
+  <section class="container-fluid footer_section">
+    <div class="social_container">
+      <h4>
+      联系我们&nbsp; </h4>
+      <div class="social-box">
+        <a href="">
+          <img src="static/images/qq.png" alt="">
+        </a>
+        <a href="">
+          <img src="static/images/wechat.png" alt="">
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- footer section -->
+
+  <script type="text/javascript" src="static/js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="static/js/bootstrap.js"></script>
+  <script type="text/javascript" src="static/js/owl.carousel.min.js">
+  </script>
+
+  <script>
+    function openNav() {
+      document.getElementById("myNav").classList.toggle("menu_width");
+      document
+        .querySelector(".custom_menu-btn")
+        .classList.toggle("menu_btn-style");
+    }
+  </script>
+
+  <!-- owl carousel script -->
+  <script type="text/javascript">
+    $(".owl-carousel").owlCarousel({
+      loop: true,
+      margin: 35,
+      navText: [],
+      autoplay: true,
+      autoplayHoverPause: true,
+      responsive: {
+        0: {
+          items: 1
+        },
+        600: {
+          items: 2
+        },
+        1000: {
+          items: 3
+        }
+      }
+    });
+  </script>
+  <!-- end owl carousel script -->
+
+</body>
+
+</html>

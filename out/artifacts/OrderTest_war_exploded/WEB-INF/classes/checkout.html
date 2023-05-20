@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<!--<![endif]-->
+<!-- Begin Head -->
+
+<head>
+    <title>结账</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="MobileOptimized" content="320">
+    <!--Start Style -->
+    <link rel="stylesheet" type="text/css" href="orderStatic/css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="orderStatic/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="orderStatic/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="orderStatic/css/icofont.min.css">
+    <link rel="stylesheet" type="text/css" href="orderStatic/css/style.css">
+	<link rel="stylesheet" id="theme-change" type="text/css" href="">
+</head>
+
+
+<body>
+<div class="loader">
+	  <div class="spinner">
+		<img src="static/picture/loader.gif" alt="">
+	  </div> 
+	</div>
+    <!-- Main Body -->
+    <div class="page-wrapper">
+        <!-- Header Start -->
+         <div th:replace="hearder.html::header"></div>
+        <!-- Sidebar Start -->
+        <div th:replace="side.html::aside"></div>
+        <!-- Container Start -->
+        <div class="page-wrapper">
+            <div class="main-content">
+                <!-- Page Title Start -->
+                <div class="row">
+                    <div class="colxl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-title-wrapper">
+                            <div class="page-title-box">
+                                <h4 class="page-title">请仔细核对您的订单</h4>
+                            </div>
+                            <div class="breadcrumb-list">
+                                <ul>
+                                    <li class="breadcrumb-link">
+                                        <a href="javascript:void(0);"><i class="fas fa-home mr-2"></i>好食代</a>
+                                    </li>
+                                    <li class="breadcrumb-link active">核对</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Table Start -->
+                <div class="row">
+                    <div class="col-lg-12">
+						<div class="card">
+							<div class="card-body">
+								<div class="ad-invoice-title">
+									<h4>订单 - 00001</h4>
+								</div>
+								<hr>
+								<div class="row">
+									<div class="col-sm-6">
+										<h5 class="mb-2">客户名:</h5>
+										<p th:text="${username}"></p>
+									</div>
+									<div class="col-sm-6 mt-3 text-sm-end">
+										<h5 class="mb-2">点餐时间:</h5>
+										<p class="time"></p>
+									</div>
+								</div>
+								<div class="py-2 mt-3 mb-2">
+									<h4 class="font-size-15">当前订单</h4>
+								</div>
+								<div class="table-responsive">
+									<table class="table table-styled mb-0">
+										<thead>
+											<tr>
+												<th style="width: 70px;">No.</th>
+												<th>菜名</th>
+												<th class="text-end">菜价</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr th:each="cartFood,cartStat : ${checkOutCartList}">
+												<td th:text="${cartStat.index}"></td>
+												<td th:text="${cartFood.getMname()}"></td>
+												<td class="text-end" th:text="'￥' + ${cartFood.getMtotalPrice()}"></td>
+											</tr>
+											<tr>
+												<td colspan="2" class="text-end">总价</td>
+												<td class="text-end" th:text="'￥' + ${cartListTotalPrice}"></td>
+											</tr>
+											<tr>
+												<td colspan="2" class="text-end">
+													<strong style="color: red;">优惠</strong></td>
+												<td class=" text-end">-￥14.00</td>
+											</tr>
+											<tr>
+												<td colspan="2" class="text-end">
+													<strong>应付</strong></td>
+												<td class=" text-end"><h4 class="m-0" th:text="'￥' + ${cartListTotalPrice - 14.00}"></h4></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+                                <div class="row" style="margin-top: 20px;margin-bottom: 30px;">
+                                    <div class="col-sm-6 mt-3">
+										<h5 class="mb-2">选择支付方式:</h5>
+                                        <div class="ad-radio-button">
+                                            <input id="radio-1" name="radio" type="radio" checked="checked">
+                                            <label for="radio-1" class="radio-label">微信</label>
+                                        </div>
+                                        <div class="ad-radio-button">
+                                            <input id="radio-2" name="radio" type="radio">
+                                            <label for="radio-2" class="radio-label">支付宝</label>
+                                        </div>
+                                        <div class="ad-radio-button">
+                                            <input id="radio-3" name="radio" type="radio">
+                                            <label for="radio-3" class="radio-label">银联</label>
+                                        </div>
+									</div>
+                                </div>
+								<div class="d-print-none mt-2">
+									<div class="float-end">
+										<a href="javascript:pay();" class="btn btn-primary w-md waves-effect waves-light" style="float: right;">提交</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+                </div>
+
+
+			</div>    
+		</div>    
+	</div>
+
+    <!-- Script Start -->
+    <script src="orderStatic/js/jquery.min.js"></script>
+    <script src="orderStatic/js/popper.min.js"></script>
+    <script src="orderStatic/js/bootstrap.min.js"></script>
+    <script src="orderStatic/js/custom.js"></script>
+	<script src="orderStatic/js/pay.js"></script>
+
+    <script>
+        $(function() {
+            getDate();
+
+            //获取系统时间
+            function getDate(){
+                var myDate = new Date;
+				var year = myDate.getFullYear(); //获取当前年
+				var mon = myDate.getMonth() + 1; //获取当前月
+				var date = myDate.getDate(); //获取当前日
+				var hours = myDate.getHours(); //获取当前小时
+				var minutes = myDate.getMinutes(); //获取当前分钟
+				var seconds = myDate.getSeconds(); //获取当前秒
+				var now = year + "/" + mon + "/" + date + " " + hours + ":" + minutes + ":" + seconds;
+               $(".time").text(now);
+            }
+        })
+    </script>
+</body>
+
+</html>

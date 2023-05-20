@@ -8,7 +8,7 @@ import jakarta.servlet.http.*;
 
 import java.io.IOException;
 
-@WebFilter(urlPatterns = {"/userIndex", "/cart", "/addCart", "/changeCartFood", "/checkout"})
+@WebFilter(urlPatterns = {"/userIndex", "/cart", "/addCart", "/changeCartFood", "/checkout", "/order", "/search"})
 public class orderFilter extends HttpFilter {
 
     @Override

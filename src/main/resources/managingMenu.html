@@ -12,6 +12,7 @@
   <!-- endinject -->
   <!-- inject:css -->
   <link href="static/css/backstageStyle.css" rel="stylesheet">
+  <link href="static/css/menuImg.css" rel="stylesheet">
   <!-- endinject -->
 </head>
 
@@ -42,17 +43,20 @@
                 <table class="table table-bordered" id="FoodTable">
                   <thead>
                   <tr>
-                    <th>
-                      编号
-                    </th>
-                    <th>
-                      菜名
-                    </th>
-                    <th>
-                      价格
+                      <th>
+                          编号
                       </th>
                       <th>
-                        简介
+                          图片
+                      </th>
+                      <th>
+                          菜名
+                      </th>
+                      <th>
+                          价格
+                      </th>
+                      <th>
+                          简介
                       </th>
                       <th style="width: 100px;">
                         操作
@@ -61,17 +65,21 @@
                     </thead>
                   <tbody>
                   <tr class="table-info" th:each="Food : ${FoodList}">
-                    <td th:text="${Food.getM_id()}">
-                    </td>
-                    <td th:text="${Food.getMname()}">
-                    </td>
-                    <td th:text="${Food.getMprice()}">
-                    </td>
-                    <td th:text="${Food.getMintrodution()}">
-                    </td>
-                    <td>
-                      <a class="button" onclick="return del()" th:href="'delMenu?id='+${Food.getM_id()}">删除</a>
-                    </td>
+                      <td th:text="${Food.getM_id()}">
+                      </td>
+                      <td>
+                          <img class="adminMenuImg" onerror="this.src='static/images/images.jpg'"
+                               th:src="'static/images/menuImages/' + ${Food.getMname()} + '.jpg'">
+                      </td>
+                      <td th:text="${Food.getMname()}">
+                      </td>
+                      <td th:text="${Food.getMprice()}">
+                      </td>
+                      <td th:text="${Food.getMintrodution()}">
+                      </td>
+                      <td>
+                          <a class="button" onclick="return del()" th:href="'delMenu?id='+${Food.getM_id()}">删除</a>
+                      </td>
                     </tr>
                     </tbody>
                   </table>

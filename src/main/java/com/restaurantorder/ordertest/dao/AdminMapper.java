@@ -33,13 +33,13 @@ public interface AdminMapper {
     @Select("SELECT * FROM menu")
     List<Food> getFoodList();
 
-    @Select("SELECT SUM(money) FROM userprice")
+    @Select("SELECT SUM(msp) FROM od")
     Double getSumPrice();
 
-    @Select("SELECT COUNT(*) FROM od;")
+    @Select("SELECT COUNT(*) FROM od")
     Integer getSumOrder();
 
-    @Select("SELECT COUNT(uid) FROM od GROUP BY uid")
+    @Select("SELECT COUNT(DISTINCT uid) FROM od GROUP BY uid")
     Integer getSumCustomer();
 
     @Results({

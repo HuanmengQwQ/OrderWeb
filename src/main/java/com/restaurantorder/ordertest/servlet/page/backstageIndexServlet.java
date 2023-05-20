@@ -15,7 +15,6 @@ import java.io.IOException;
 
 @WebServlet("/adminIndex")
 public class backstageIndexServlet extends HttpServlet {
-    String s = "";
     AdminService adminService;
 
     @Override
@@ -40,9 +39,9 @@ public class backstageIndexServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String note = req.getParameter("note");
-
+        System.out.println(note);
         adminService.ChangeAnnouncements(note);
 
-        resp.sendRedirect("adminIndex");
+//        resp.sendRedirect("adminIndex");
     }
 }

@@ -95,6 +95,7 @@ fileInput.addEventListener('change', function (e) { //监听change事件，选�
 })
 
 $(document).ready(function () {
+
     $('.formsDish').submit(function (event) {
         event.preventDefault();
         var formData = new FormData(this);
@@ -111,6 +112,7 @@ $(document).ready(function () {
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.error(errorThrown);
+                alert("出现错误！请在控制台查看！");
             }
         });
     });

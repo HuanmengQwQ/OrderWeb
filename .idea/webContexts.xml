@@ -10,6 +10,7 @@
         <entry key="file://$PROJECT_DIR$/src/main/resources/backstage-index.html" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/resources/home.html" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/resources/login.html" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/resources/orders.html" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/static/css/adminLoginStyle.css" value="file://$PROJECT_DIR$/src/main/webapp" />
       </map>
     </option>
